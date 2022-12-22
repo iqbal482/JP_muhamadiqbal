@@ -12,14 +12,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:9090/getRumahSakitUpdate",
+					"raw": "http://localhost:9090/joinAPI",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "9090",
 					"path": [
-						"getRumahSakitUpdate"
+						"joinAPI"
 					]
 				}
 			},
@@ -50,7 +50,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:9090/search?kelurahan&kabupaten&kota",
+					"raw": "http://localhost:9090/search?kelurahan=Kenari&kecamatan=Senen",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -62,15 +62,96 @@
 					"query": [
 						{
 							"key": "kelurahan",
-							"value": null
+							"value": "Kenari"
+						},
+						{
+							"key": "kecamatan",
+							"value": "Senen"
 						},
 						{
 							"key": "kabupaten",
-							"value": null
+							"value": "Jakarta Pusat",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Kecamatan",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/kecamatan?kecamatan=Senen",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"kecamatan"
+					],
+					"query": [
+						{
+							"key": "kelurahan",
+							"value": "Kenari",
+							"disabled": true
 						},
 						{
-							"key": "kota",
-							"value": null
+							"key": "kecamatan",
+							"value": "Senen"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get kelurahan",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/kelurahan?kelurahan=Kenari",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"kelurahan"
+					],
+					"query": [
+						{
+							"key": "kelurahan",
+							"value": "Kenari"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Kabupaten",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/kabupaten?kabupaten=Jakarta Pusat",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"kabupaten"
+					],
+					"query": [
+						{
+							"key": "kabupaten",
+							"value": "Jakarta Pusat"
 						}
 					]
 				}

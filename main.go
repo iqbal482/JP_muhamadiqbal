@@ -186,6 +186,79 @@ func filterRumahSakit(w http.ResponseWriter, r *http.Request) {
 	// response.Data = nil
 }
 
+func filterRumahSakitKel(w http.ResponseWriter, r *http.Request) {
+	//var newResponse Response
+	var temp []interface{}
+	var response response
+	var kelurahan string
+	kelurahan = r.URL.Query().Get("kelurahan")
+
+	// kelurahan = w.Header().Get("kelurahan")
+	for i := range Responses {
+		if strings.ToUpper(Responses[i].Kelurahan) == strings.ToUpper(kelurahan) {
+			temp = append(temp, Responses[i])
+		}
+	}
+
+	response.Code = http.StatusOK
+	response.Status = "Sukses"
+	response.Count = int16(len(Responses))
+	response.Data = temp
+
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(response)
+	temp = nil
+	// response.Data = nil
+}
+
+func filterRumahSakitKec(w http.ResponseWriter, r *http.Request) {
+	//var newResponse Response
+	var temp []interface{}
+	var response response
+	var kecamatan string
+	kecamatan = r.URL.Query().Get("kecamatan")
+
+	for i := range Responses {
+		if strings.ToUpper(Responses[i].Kecamatan) == strings.ToUpper(kecamatan) {
+			temp = append(temp, Responses[i])
+		}
+	}
+
+	response.Code = http.StatusOK
+	response.Status = "Sukses"
+	response.Count = int16(len(Responses))
+	response.Data = temp
+
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(response)
+	temp = nil
+	// response.Data = nil
+}
+
+func filterRumahSakitKab(w http.ResponseWriter, r *http.Request) {
+	//var newResponse Response
+	var temp []interface{}
+	var response response
+	var kabupaten string
+	kabupaten = r.URL.Query().Get("kabupaten")
+
+	for i := range Responses {
+		if strings.ToUpper(Responses[i].KotaKabAdministrasi) == strings.ToUpper(kabupaten) {
+			temp = append(temp, Responses[i])
+		}
+	}
+
+	response.Code = http.StatusOK
+	response.Status = "Sukses"
+	response.Count = int16(len(Responses))
+	response.Data = temp
+
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(response)
+	temp = nil
+	// response.Data = nil
+}
+
 func getHealth(w http.ResponseWriter, r *http.Request) {
 	s := health{"Good", http.StatusOK}
 	resp, err := json.Marshal(s)
@@ -212,6 +285,9 @@ func handler() {
 	handlerGolang.HandleFunc("/joinAPI", getRumahSakitUpdate).Methods("GET")
 	handlerGolang.HandleFunc("/health", getHealth).Methods("GET")
 	handlerGolang.HandleFunc("/search", filterRumahSakit).Methods("GET")
+	handlerGolang.HandleFunc("/kelurahan", filterRumahSakitKel).Methods("GET")
+	handlerGolang.HandleFunc("/kecamatan", filterRumahSakitKec).Methods("GET")
+	handlerGolang.HandleFunc("/kabupaten", filterRumahSakitKab).Methods("GET")
 	log.Fatal(http.ListenAndServe(":9090", handlerGolang))
 }
 
