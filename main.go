@@ -132,18 +132,6 @@ func getRumahSakitUpdate(w http.ResponseWriter, r *http.Request) {
 				Responses = append(Responses, newResponse)
 			}
 		}
-
-		newResponse.NamaRumahSakit = rs.NamaRumahSakit
-		newResponse.JenisRumahSakit = "Rumah Sakit Umum"
-		newResponse.AlamatRumahSakit = rs.AlamatRumahSakit
-		newResponse.Kelurahan = rs.Kelurahan
-		newResponse.Kecamatan = rs.Kecamatan
-		newResponse.KodePos = rs.KodePos
-		newResponse.NomorTelepon = rs.NomorTelepon
-		newResponse.NomorFax = rs.NomorFax
-		newResponse.Website = rs.Website
-		newResponse.Email = rs.Email
-		Responses = append(Responses, newResponse)
 	}
 
 	response.Code = http.StatusOK
@@ -172,7 +160,7 @@ func filterRumahSakit(w http.ResponseWriter, r *http.Request) {
 			fmt.Println(Responses[i], kelurahan, kecamatan, kabupaten)
 			temp = append(temp, Responses[i])
 		} else {
-			if (Responses[i].Kecamatan == kecamatan || Responses[i].KotaKabAdministrasi == kabupaten) && Responses[i].Kelurahan == kelurahan {
+			if (Responses[i].Kecamatan == kecamatan && Responses[i].KotaKabAdministrasi == kabupaten) || Responses[i].Kelurahan == kelurahan {
 				fmt.Println(Responses[i].Kelurahan, kelurahan, kecamatan, kabupaten)
 				temp = append(temp, Responses[i])
 			}
@@ -180,10 +168,10 @@ func filterRumahSakit(w http.ResponseWriter, r *http.Request) {
 				fmt.Println(Responses[i].Kecamatan, kelurahan, kecamatan, kabupaten)
 				temp = append(temp, Responses[i])
 			}
-			if (Responses[i].Kelurahan == kelurahan && Responses[i].Kecamatan == kecamatan) && Responses[i].KotaKabAdministrasi == kabupaten {
-				fmt.Println(Responses[i].Kecamatan, kelurahan, kecamatan, kabupaten)
-				temp = append(temp, Responses[i])
-			}
+			// if Responses[i].KotaKabAdministrasi == kabupaten {
+			// 	fmt.Println(Responses[i].Kecamatan, kelurahan, kecamatan, kabupaten)
+			// 	temp = append(temp, Responses[i])
+			// }
 		}
 	}
 
