@@ -67,6 +67,7 @@ var RumahSakitRujukans = containRumahSakitRujukans{}
 var RumahSakits = containRumahSakits{}
 var Responses = containResponses{}
 
+// Api untuk join API
 func getRumahSakitUpdate(w http.ResponseWriter, r *http.Request) {
 	var newResponse Response
 	var response response
@@ -154,6 +155,7 @@ func getRumahSakitUpdate(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(response)
 }
 
+// Api untuk filter
 func filterRumahSakit(w http.ResponseWriter, r *http.Request) {
 	//var newResponse Response
 	var temp []interface{}
@@ -183,15 +185,11 @@ func filterRumahSakit(w http.ResponseWriter, r *http.Request) {
 				temp = append(temp, Responses[i])
 			}
 		}
-		// fmt.Println()
-		// } else if Responses[i].Kelurahan == kelurahan|| Responses[i].Kecamatan == kecamatan && Responses[i].KotaKabAdministrasi == kabupaten {
-		// 	temp = append(temp, Responses[i])
-		// }
-
 	}
 
 	response.Code = http.StatusOK
 	response.Status = "Sukses"
+	response.Count = int16(len(Responses))
 	response.Data = temp
 
 	w.Header().Set("Content-Type", "application/json")
@@ -230,6 +228,6 @@ func handler() {
 }
 
 func main() {
-	fmt.Println("Rest Api v2.0 - Mux Router - moehiqbal golang")
+	fmt.Println("Dinkes DKI Jakarta - JP_muhammad.iqbal")
 	handler()
 }
