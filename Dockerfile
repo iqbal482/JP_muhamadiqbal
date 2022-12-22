@@ -1,11 +1,12 @@
-FROM alpine
-ENV GO111MODULE=on
+FROM golang:alpine
 ENV CGO_ENABLED=0
-ENV GOOS=linux
-ENV GOARCH=amd64
-ENV GOARCH=wasm
-ENV GOOS=js
-ADD bin /app
-WORKDIR /app
+RUN apk update && apk add --no-cache git
+WORKDIR $GOPATH/src/mypackage/myapp/
+COPY . .
+# Fetch dependencies.
+# Using go get.
+RUN go get -d -v
+# Build the binary.
+RUN go build -o /go/bin/main
 EXPOSE 9090
-CMD ["./main"]
+ENTRYPOINT ["/go/bin/main"]

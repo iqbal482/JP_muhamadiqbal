@@ -45,11 +45,14 @@ clean:
 	-rm -f ${VET_REPORT}
 	-rm -f bin/${BINARY}-*
 
+docker-build-linuxplatform:
+	docker build --platform linux/amd64 -t go-clean-arch .
+
 docker-build:
 	docker build -t go-clean-arch .
 
 docker-compose-run:
 	docker-compose up --build -d
 
-stop:
+docker-compose-stop:
 	docker-compose down
