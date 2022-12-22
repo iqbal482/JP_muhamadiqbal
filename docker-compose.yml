@@ -1,0 +1,15 @@
+version: "3"
+services:
+  # the golang app
+  golang:
+    container_name: "golang-jakesh"
+    working_dir: /app
+    build: .
+    ports:
+      - 9090:9090
+    networks:
+      - golang_app
+
+networks:
+  golang_app:
+    driver: bridge

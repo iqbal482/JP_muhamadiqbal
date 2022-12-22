@@ -1,0 +1,81 @@
+{
+	"info": {
+		"_postman_id": "51592328-73a9-4331-baaf-a4a4fd433027",
+		"name": "JP_Muhamad.Iqbal",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2592129"
+	},
+	"item": [
+		{
+			"name": "Get Join",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/getRumahSakitUpdate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"getRumahSakitUpdate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Health",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Search",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/search?kelurahan&kabupaten&kota",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"search"
+					],
+					"query": [
+						{
+							"key": "kelurahan",
+							"value": null
+						},
+						{
+							"key": "kabupaten",
+							"value": null
+						},
+						{
+							"key": "kota",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
