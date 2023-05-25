@@ -1,0 +1,69 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
+        "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: #eaeaea;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#__next {
+  min-height: var(--vhscreen);
+  --bg-opacity: 1;
+  font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+#__mobileView {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 600px;
+}
+
+.MuiDrawer-root, .MuiBackdrop-root, .MuiDrawer-paper{
+  max-width: 600px;
+  margin: auto
+}
+
+a {
+  text-decoration: unset;
+  color: inherit;
+}
+
+.box-shadow {
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.05);
+}
+
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  flex-direction: row;
+}
+
+.btn-custom{
+  width: 30%;
+  min-width: 120px;
+  margin-left: 1rem;
+}
+
+@media (max-width: 300px) {
+  .wrapper {
+    flex-direction: column;
+  }
+
+  .btn-custom {
+    width: 100%;
+    margin-left: 0;
+  }
+}

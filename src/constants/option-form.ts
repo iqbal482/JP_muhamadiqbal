@@ -1,0 +1,80 @@
+const pekerjaan = [
+  { id: "PNS", label: "PNS" },
+  { id: "SWASTA", label: "SWASTA" },
+  { id: "WIRASWASTA", label: "WIRASWASTA" },
+  { id: "BURUH", label: "BURUH" },
+  { id: "PELAJAR", label: "PELAJAR" },
+  { id: "MAHASISWA", label: "MAHASISWA" },
+  { id: "LAINNYA", label: "LAINNYA" },
+  { id: "IBU_RUMAH_TANGGA", label: "IBU RUMAH TANGGA" },
+  { id: "PEDAGANG", label: "PEDAGANG" },
+  { id: "TNI_POLRI", label: "TNI / POLRI" },
+  { id: "PENELITI", label: "PENELITI" },
+  { id: "PENSIUNAN", label: "PENSIUNAN" },
+].sort((a, b) => a.label.localeCompare(b.label));
+
+export const masterOptions = {
+  identity_type: [
+    { id: "KTP", label: "Kartu Tanda Penduduk" },
+    { id: "MR", label: "Nomor Rekam Medis" },
+  ],
+  jenkel: [
+    { id: "L", label: "Laki-laki" },
+    { id: "P", label: "Perempuan" },
+  ],
+  citizenship: [
+    { id: "WNI", label: "Warga Negara Indonesia" },
+    { id: "WNA", label: "Warga Negara Asing" },
+  ],
+  marital_status: [
+    { id: "BELUM_KAWIN", label: "Lajang" },
+    { id: "KAWIN", label: "Kawin" },
+    { id: "CERAI_HIDUP", label: "Cerai Hidup" },
+    { id: "CERAI_MATI", label: "Cerai Mati" },
+  ],
+  religion: [
+    { id: "islam", label: "Islam" },
+    { id: "kristen", label: "Kristen" },
+    { id: "katholik", label: "Katholik" },
+    { id: "hindu", label: "Hindu" },
+    { id: "budha", label: "Budha" },
+    { id: "konghucu", label: "Konghucu" },
+  ],
+  goldar: [
+    { id: "A", label: "A" },
+    { id: "B", label: "B" },
+    { id: "O", label: "O" },
+    { id: "AB", label: "AB" },
+  ],
+  education: [
+    { id: "BELUM_SEKOLAH", label: "TIDAK SEKOLAH" },
+    { id: "SD", label: "SD" },
+    { id: "SMP", label: "SLTP / SMP" },
+    { id: "SMA", label: "SLTA / SMA" },
+    { id: "DIPLOMA", label: "DIPLOMA" },
+    { id: "S1", label: "S1 / SARJANA" },
+    { id: "S2", label: "S2 / DOKTOR" },
+    { id: "S3", label: "S3 / MAGISTER" },
+  ],
+  occupation: pekerjaan,
+  insurance: [
+    { id: "0", label: "UMUM" },
+    { id: "1", label: "BPJS" },
+  ],
+  disabilities: [
+    { id: "Tuna Rungu", label: "Tuna Rungu" },
+    { id: "Tuna Netra", label: "Tuna Netra" },
+    { id: "Tuna Wicara", label: "Tuna Wicara" },
+  ],
+  relationship: [
+    { id: "SUAMI", label: "Suami" },
+    { id: "ISTRI", label: "Istri" },
+    { id: "ANAK", label: "Anak" },
+    { id: "IBU", label: "Ibu" },
+    { id: "AYAH", label: "Ayah" },
+    { id: "KERABAT", label: "Kerabat" },
+    { id: "PAMAN", label: "Paman" },
+    { id: "BIBI", label: "Bibi" },
+    { id: "LAIN_LAIN", label: "Lain-lain" },
+  ],
+};

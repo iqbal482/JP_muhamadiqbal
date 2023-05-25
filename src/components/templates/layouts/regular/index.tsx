@@ -1,0 +1,32 @@
+import React from "react";
+import BottomNav from "./BottomNav";
+import { Box, Container, Paper, Stack, StackProps } from "@mui/material";
+import HeaderNav from "./HeaderNav";
+
+interface LayoutsProps extends StackProps {
+  withFooter?: boolean,
+  withHeader?: boolean,
+}
+
+/**
+ * 描述
+ * @date 2022-09-11
+ * @return {React.Component}
+ */
+export default function RegularLayouts({withFooter = true, withHeader = true, children, ...rest}: LayoutsProps) {
+  return (
+    <Stack {...rest} bgcolor="white" height={rest.height || "100%"} width={rest.width || "100%"} position="relative">
+      {withHeader && <HeaderNav />}
+      <Container>
+        <Box display="flex" flex={1} width="100%" minHeight="100vh" padding={{xs: "1rem", sm: "1rem 2rem"}}  overflow="scroll" flexDirection="column">
+            {children}
+        </Box>
+      </Container>
+      {withFooter && <Box flex={0} display="flex" width="100%" position="relative">
+        <Paper sx={{ position: 'sticky', bottom: 0, left: 0, right: 0, display: "flex", flex: 1 }}>
+          <BottomNav />
+        </Paper>
+      </Box>}
+    </Stack>
+  );
+}
